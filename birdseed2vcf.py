@@ -177,6 +177,10 @@ def vcf_header(file_hd,sample):
     now = datetime.datetime.now()
     file_hd.write("##fileformat=VCFv4.1\n##CreatedBy=BirdseedToVCF-v" + version + "\n##CreatedOn=")
     file_hd.write(now.strftime("%Y-%m-%d:%H:%M"))
+    file_hd.write("\n##INFO=<ID=PID,Number=1,Type=String,Description=\"Probe ID\">\n"
+            "##FORMAT=<ID=GT,Number=1,Type=String,Description=\"Genotype\">\n"
+            "##FORMAT=<ID=DP,Number=1,Type=Integer,Description=\"Approximate read depth\">\n"
+            "##FORMAT=<ID=GQ,Number=1,Type=Integer,Description=\"Genotype Quality\">")
     file_hd.write("\n#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO\tFORMAT\t" + sample + "\n")
 
 '''
